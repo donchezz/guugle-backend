@@ -11,6 +11,8 @@
       "src": "/(.*)",
       "dest": "dist/main.js"
     }
-  ]
-  
+  ],
+  "env": {
+    "DATABASE_URL": "mongodb+srv://guzzu:guzzu123@cluster0.zezf59x.mongodb.net/account?retryWrites=true&w=majority"
+  }
 }
