@@ -11,17 +11,21 @@ async function bootstrap() {
 
   // Enable CORS for frontend
   app.enableCors({
-    origin: 'http://localhost:5173',
+    origin: [
+      'http://localhost:5173',
+      'https://guugle-frontend.onrender.com',
+      'https://guugle-backend.onrender.com'
+    ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
   });
 
   const port = process.env.PORT || 5000;
-  await app.listen(port);
+  await app.listen(port, '0.0.0.0');
 
   logger.log(`🚀 Application is running on: http://localhost:${port}`);
-  logger.log(`📡 CORS enabled for: http://localhost:5173`);
+  logger.log(`📡 CORS enabled for frontend URLs`);
   logger.log(`💾 Database: MongoDB via Prisma`);
 }
 bootstrap();
